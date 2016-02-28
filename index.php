@@ -17,6 +17,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://use.fonticons.com/ffd19869.js"></script>
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["setDomains", ["*.gamenight.community"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//orlandogamers.net/piwik/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 3]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//orlandogamers.net/piwik/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+    <!-- End Piwik Code -->
+
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -33,7 +50,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="events/"><i class="fa fa-calendar"></i> Events</a></li>
+            <!-- <li><a href="events/"><i class="fa fa-calendar"></i> Events</a></li> -->
             <li><a href="http://orlandogamers.net"><i class="fa fa-comments-o"></i> Forums</a></li>
           </ul>
         </div>
@@ -90,7 +107,7 @@
                 Possible Super Smash Tournament!
               </p>
               <p>
-                <strong class="text-warning">Contact:</strong> Interested? <a href="http://orlandogamers.net">Leave a message here.</a>
+                <strong class="text-warning">Contact:</strong> Interested? <a href="http://orlandogamers.net/viewtopic.php?f=14&t=24">Leave a message here.</a>
               </p>
             </div>
           </div>
