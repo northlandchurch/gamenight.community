@@ -1,4 +1,4 @@
-<?php require 'lib/meetup_opts.php';?>
+<?php require 'lib/meetup_functions.php';?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,8 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Game Night Community</title>
     <!-- <link rel="stylesheet" href="lib/bootstrap.min.css"> -->
+
+
     <link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="http://bootswatch.com/lumen/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://use.fonticons.com/ffd19869.js"></script>
@@ -37,10 +42,10 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-6">
           <!-- <img src="assets/gn_logo.png" class="img-responsive" alt="" /> -->
           <h1 class="media-heading">Let's Play</h1>
-            <p class="lead text-primary">
+            <p class="lead">
               Our hope is to help you get connected to other gamers, board gaming clubs,
               sport leagues and video game tournaments.
             </p>
@@ -52,61 +57,43 @@
               deeper bonds of friendship.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Currently, this website is centered around the central Florida region.
+              Our hope is to broaden the appeal of game nights world-wide, until then
+              all of the Meetup events and groups are typically within a 5-20 mile
+              range of Longwood, FL.
+            </p>
+            <p>
+              If you would like one of your events featured this website, <a href="https://twitter.com/rburkej">just send
+              me, Robert Johnson, a message</a> on <i class="fa fa-twitter"></i>.
             </p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6">
 
-          <div class="panel panel-primary">
+          <div class="panel panel-warning">
             <div class="panel-heading">
               <h3 class="panel-title">Featured Events</h3>
             </div>
             <div class="panel-body">
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                    <img src="assets/IMG_0235.jpg" alt="...">
-                    <div class="carousel-caption">
-                      Superfun!
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/IMG_0290.jpg" alt="...">
-                    <div class="carousel-caption">
-                      Morun!
-                    </div>
-                  </div>
-                    <div class="item">
-                      <img src="assets/IMG_0236.jpg" alt="...">
-                      <div class="carousel-caption">
-                        Some games being played.
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
+              <h4>Game Night at Stonecastle Apartments</h4>
+              <p>
+                <img src="public/stone.png" class="img-responsive img-rounded" alt="event image"/>
+              </p>
+              <p>
+                <strong class="text-warning">Date:</strong> March 11, 2016
+              </p>
+              <p>
+                <strong class="text-warning">Time:</strong> 7PM - 11PM
+              </p>
+              <p>
+                <strong class="text-warning">Description:</strong> Come join us for an evening of gaming!
+                Play some video games and board games in a open and friendly environment.
+                Possible Super Smash Tournament!
+              </p>
+              <p>
+                <strong class="text-warning">Contact:</strong> Interested? <a href="http://orlandogamers.net">Leave a message here.</a>
+              </p>
             </div>
           </div>
-
-
-
         </div>
       </div>
 
@@ -123,11 +110,23 @@
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading">Local </h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.
+              <!-- <h4 class="media-heading">Board Games</h4> -->
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Board Games Events</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getbgmeetupevents($meetupapikey); ?>
+                </div>
+              </div>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Board Games Groups</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getbgmeetupgroups($meetupapikey); ?>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -139,11 +138,23 @@
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading">Video Games</h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.
+              <!-- <h4 class="media-heading">Video Games</h4> -->
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Video Games Events</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getvgmeetupevents($meetupapikey); ?>
+                </div>
+              </div>
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Video Games Groups</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getvgmeetupgroups($meetupapikey); ?>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -155,11 +166,23 @@
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading">Sports</h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.
+              <!-- <h4 class="media-heading">Sports</h4> -->
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Sporting Events</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getsmeetupevents($meetupapikey); ?>
+                </div>
+              </div>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Sport Groups</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getsmeetupgroups($meetupapikey); ?>
+                </div>
+              </div>
             </div>
           </div>
         </div>
