@@ -1,7 +1,7 @@
 <?php
   error_reporting(E_ALL ^ E_NOTICE);
   require '../lib/db-config.php';
-  $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents;");
+  $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents where active is true;");
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,7 +92,7 @@
               <input type="text" class="form-control" id="eventcontact" name="contact"  placeholder="e.g., robert.johnson@northlandchurch.net, 407-555-1212, or even a link to another website.">
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success">Submit</button>                            
+              <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </form>
         </div>
