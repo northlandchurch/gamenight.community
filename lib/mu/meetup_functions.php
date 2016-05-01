@@ -7,7 +7,7 @@ function getbgmeetupevents($meetupapikey) {
     $meetupevents = new Meetup(array(
       'key' => $meetupapikey,
       'zip' => '32750',
-      'radius' => '10',
+      'radius' => '12',
       'topic' => 'board-games'
     ));
 
@@ -26,7 +26,7 @@ function getbgmeetupgroups($meetupapikey) {
     $meetupgroups = new Meetup(array(
       'key' => $meetupapikey,
       'zip' => '32750',
-      'radius' => '8',
+      'radius' => '15',
       'topic' => 'board-games'
     ));
 
@@ -45,7 +45,7 @@ function getvgmeetupevents($meetupapikey) {
     $meetupevents = new Meetup(array(
       'key' => $meetupapikey,
       'zip' => '32750',
-      'radius' => '10',
+      'radius' => '20',
       'topic' => 'videogame'
     ));
 
@@ -64,7 +64,7 @@ function getvgmeetupgroups($meetupapikey) {
     $meetupgroups = new Meetup(array(
       'key' => $meetupapikey,
       'zip' => '32750',
-      'radius' => '10',
+      'radius' => '20',
       'topic' => 'videogame'
     ));
 
@@ -102,13 +102,13 @@ function getsmeetupgroups($meetupapikey) {
     $meetupgroups = new Meetup(array(
       'key' => $meetupapikey,
       'zip' => '32750',
-      'radius' => '8',
+      'radius' => '12',
       'topic' => 'sports'
     ));
 
     $response = $meetupgroups->getGroups();
     foreach ($response->results as $group) {
-      echo '<p><a href="' . $group->link . '">' . $group->name . '</a></p>';
+      echo '<p><a href="' . $group->link . '">' . $group->name . '</a></p>' . PHP_EOL;
     }
   }
   catch(Exception $e) {

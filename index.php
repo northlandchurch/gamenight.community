@@ -1,4 +1,9 @@
-<?php require 'lib/meetup_functions.php';?>
+<?php
+  require 'lib/mu/meetup_functions.php';
+  require 'lib/writeevents.php';
+  require 'lib/db-config.php';
+  $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents;");
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,34 +11,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Game Night Community</title>
-    <!-- <link rel="stylesheet" href="lib/bootstrap.min.css"> -->
-
 
     <link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="http://bootswatch.com/lumen/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://use.fonticons.com/ffd19869.js"></script>
-    <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(["setDomains", ["*.gamenight.community"]]);
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//orlandogamers.net/piwik/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', 3]);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <noscript><p><img src="//orlandogamers.net/piwik/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
 
+    <!-- bxSlider Javascript file -->
+    <script src="lib/js/bxslider/jquery.bxslider.min.js"></script>
+    <!-- bxSlider CSS file -->
+    <link href="lib/js/bxslider/my_bxslider_theme.css" rel="stylesheet" />
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.bxslider').bxSlider({
+          auto: true,
+          controls: false
+        });
+      });
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -45,13 +41,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><i class="fa fa-home"></i> Game Night</a>
+          <a class="navbar-brand" href="/"><i class="fa fa-home"></i> Game Night</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <!-- <li><a href="events/"><i class="fa fa-calendar"></i> Events</a></li> -->
             <li><a href="http://orlandogamers.net"><i class="fa fa-comments-o"></i> Forums</a></li>
+            <li><a href="addevent/"><i class="fa fa-calendar"></i> Add Featured Event</a></li>
           </ul>
         </div>
       </div>
@@ -59,12 +56,15 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <!-- <img src="assets/gn_logo.png" class="img-responsive" alt="" /> -->
+
+        <div class="col-md-7">
           <h1 class="media-heading">Let's Play</h1>
             <p class="lead">
               Our hope is to help you get connected to other gamers, board gaming clubs,
               sport leagues and video game tournaments.
+            </p>
+            <p>
+              <img src="assets/gn_logo.png" class="img-responsive" alt="" />
             </p>
             <h2>Gaming is good for you.</h2>
             <p>
@@ -81,53 +81,55 @@
             </p>
             <p>
               If you would like one of your events featured this website, <a href="https://twitter.com/rburkej">just send
-              me, Robert Johnson, a message</a> on <i class="fa fa-twitter"></i>.
+              Robert Johnson a message</a> on <i class="fa fa-twitter"></i>.
             </p>
         </div>
-        <div class="col-md-6">
 
+        <div class="col-md-5">
           <div class="panel panel-warning">
             <div class="panel-heading">
               <h3 class="panel-title">Featured Events</h3>
             </div>
             <div class="panel-body">
-              <h4>Game Night at Stonecastle Apartments</h4>
-              <p>
-                <img src="public/stone.png" class="img-responsive img-rounded" alt="event image"/>
-              </p>
-              <p>
-                <strong class="text-warning">Date:</strong> March 11, 2016
-              </p>
-              <p>
-                <strong class="text-warning">Time:</strong> 7PM - 11PM
-              </p>
-              <p>
-                <strong class="text-warning">Description:</strong> Come join us for an evening of gaming!
-                Play some video games and board games in a open and friendly environment.
-                Possible Super Smash Tournament!
-              </p>
-              <p>
-                <strong class="text-warning">Contact:</strong> Interested? <a href="http://orlandogamers.net/viewtopic.php?f=14&t=24">Leave a message here.</a>
-              </p>
+              <ul class="bxslider">
+                <?php writeevents($featuredevents); ?>
+              </ul>
             </div>
           </div>
+        </div>
+
+      </div> <!-- row -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Local Groups and Events</h2>
+          <hr>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <h2>Local Groups and Events <small>powered by Meetup.com</small></h2>
-          <hr>
-        </div>
         <div class="col-md-4">
           <div class="media">
             <div class="media-left media-top">
-              <a href="#">
-                <img class="media-object" src="assets/GameIcon_Chess.png" width="55px" alt="...">
-              </a>
+              <img class="media-object" src="assets/GameIcon_Chess.png" width="55px" alt="Chess Icon">
             </div>
             <div class="media-body">
-              <!-- <h4 class="media-heading">Board Games</h4> -->
+
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Board Games Groups</h3>
+                </div>
+                <div class="panel-body">
+                  <p>
+                    <a href="http://stanleygamingguild.com">The Stanley Gaming Guild</a>
+                  </p>
+                  <p>
+                    <a href="http://gamenight.northlandchurch.net">Game Night at Northland</a>
+                  </p>
+                  <?php getbgmeetupgroups($meetupapikey); ?>
+                </div>
+              </div>
+
               <div class="panel panel-info">
                 <div class="panel-heading">
                   <h3 class="panel-title">Board Games Events</h3>
@@ -136,26 +138,29 @@
                   <?php getbgmeetupevents($meetupapikey); ?>
                 </div>
               </div>
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Board Games Groups</h3>
-                </div>
-                <div class="panel-body">
-                  <?php getbgmeetupgroups($meetupapikey); ?>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="media">
             <div class="media-left media-top">
-              <a href="#">
-                <img class="media-object" src="assets/GameIcon_Invader.png" width="55px" alt="...">
-              </a>
+              <img class="media-object" src="assets/GameIcon_Joystick.png" width="55px" alt="Joystick Icon">
             </div>
             <div class="media-body">
-              <!-- <h4 class="media-heading">Video Games</h4> -->
+
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Video Games Groups</h3>
+                </div>
+                <div class="panel-body">
+                  <p>
+                    <a href="http://gamenight.northlandchurch.net">Game Night at Northland</a>
+                  </p>
+                  <?php getvgmeetupgroups($meetupapikey); ?>
+                </div>
+              </div>
+
               <div class="panel panel-success">
                 <div class="panel-heading">
                   <h3 class="panel-title">Video Games Events</h3>
@@ -164,26 +169,29 @@
                   <?php getvgmeetupevents($meetupapikey); ?>
                 </div>
               </div>
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Video Games Groups</h3>
-                </div>
-                <div class="panel-body">
-                  <?php getvgmeetupgroups($meetupapikey); ?>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="media">
             <div class="media-left media-top">
-              <a href="#">
-                <img class="media-object" src="assets/GameIcon_Soccer.png" width="55px" alt="...">
-              </a>
+              <img class="media-object" src="assets/GameIcon_Soccer.png" width="55px" alt="Soccer Ball Icon">
             </div>
             <div class="media-body">
-              <!-- <h4 class="media-heading">Sports</h4> -->
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Sport Groups</h3>
+                </div>
+                <div class="panel-body">
+                  <?php getsmeetupgroups($meetupapikey); ?>
+                  <p>
+                    <a href="http://gamenight.northlandchurch.net">Game Night at Northland</a>
+                  </p>
+                </div>
+              </div>
+
               <div class="panel panel-primary">
                 <div class="panel-heading">
                   <h3 class="panel-title">Sporting Events</h3>
@@ -192,24 +200,21 @@
                   <?php getsmeetupevents($meetupapikey); ?>
                 </div>
               </div>
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Sport Groups</h3>
-                </div>
-                <div class="panel-body">
-                  <?php getsmeetupgroups($meetupapikey); ?>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
+
       </div> <!-- row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <hr>
+          <footer>
+            <p class="text-right">Don't read this.</p>
+          </footer>
+        </div>
 
-      <hr>
-
-      <footer>
-        <p>Super secret small text no one reads.</p>
-      </footer>
+      </div>
     </div> <!-- /container -->
   </body>
 </html>
