@@ -48,6 +48,7 @@
           <ul class="nav navbar-nav">
             <!-- <li><a href="events/"><i class="fa fa-calendar"></i> Events</a></li> -->
             <li><a href="http://orlandogamers.net"><i class="fa fa-comments-o"></i> Forums</a></li>
+            <li><a href="http://orlandogamers.net/slack"><i class="fa fa-slack"></i> Slack</a></li>
             <li><a href="addevent/"><i class="fa fa-calendar"></i> Add Featured Event</a></li>
           </ul>
         </div>

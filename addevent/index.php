@@ -1,7 +1,7 @@
 <?php
   error_reporting(E_ALL ^ E_NOTICE);
   require '../lib/db-config.php';
-  $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents where active is true;");
+  // $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents where active is true;");
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,6 +43,7 @@
           <ul class="nav navbar-nav">
             <!-- <li><a href="events/"><i class="fa fa-calendar"></i> Events</a></li> -->
             <li><a href="http://orlandogamers.net"><i class="fa fa-comments-o"></i> Forums</a></li>
+            <li><a href="http://orlandogamers.net/slack"><i class="fa fa-slack"></i> Slack</a></li>
             <li class="active"><a href="index.php"><i class="fa fa-calendar"></i> Add Featured Event</a></li>
           </ul>
         </div>
