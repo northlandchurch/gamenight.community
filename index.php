@@ -2,7 +2,7 @@
   require 'lib/mu/meetup_functions.php';
   require 'lib/writeevents.php';
   require 'lib/db-config.php';
-  $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents;");
+  $featuredevents = DB::Query("select name, description, location, date, time, contact from featuredevents where active is true;");
 ?>
 <!DOCTYPE html>
 <html>
