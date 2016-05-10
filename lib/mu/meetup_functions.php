@@ -12,8 +12,14 @@ function getbgmeetupevents($meetupapikey) {
     ));
 
     $response = $meetupevents->getOpenevents();
+
+    $i = 1;
     foreach ($response->results as $event) {
+      if ($i > 10) {
+        break;
+      }
       echo '<p><a href="' . $event->event_url . '">' . $event->name . '</a></p>';
+      $i++;
     }
   }
   catch(Exception $e) {
@@ -31,8 +37,14 @@ function getbgmeetupgroups($meetupapikey) {
     ));
 
     $response = $meetupgroups->getGroups();
+
+    $i = 1;
     foreach ($response->results as $group) {
+      if ($i > 8) {
+        break;
+      }
       echo '<p><a href="' . $group->link . '">' . $group->name . '</a></p>';
+      $i++;
     }
   }
   catch(Exception $e) {
@@ -50,8 +62,14 @@ function getvgmeetupevents($meetupapikey) {
     ));
 
     $response = $meetupevents->getOpenevents();
+
+    $i = 1;
     foreach ($response->results as $event) {
+      if ($i > 10) {
+        break;
+      }
       echo '<p><a href="' . $event->event_url . '">' . $event->name . '</a></p>';
+      $i++;
     }
   }
   catch(Exception $e) {
@@ -69,8 +87,14 @@ function getvgmeetupgroups($meetupapikey) {
     ));
 
     $response = $meetupgroups->getGroups();
+
+    $i = 1;
     foreach ($response->results as $group) {
+      if ($i > 9) {
+        break;
+      }
       echo '<p><a href="' . $group->link . '">' . $group->name . '</a></p>';
+      $i++;
     }
   }
   catch(Exception $e) {
@@ -88,8 +112,14 @@ function getsmeetupevents($meetupapikey) {
     ));
 
     $response = $meetupevents->getOpenevents();
+
+    $i = 1;
     foreach ($response->results as $event) {
+      if ($i > 10) {
+        break;
+      }
       echo '<p><a href="' . $event->event_url . '">' . $event->name . '</a></p>';
+      $i++;
     }
   }
   catch(Exception $e) {
@@ -107,8 +137,14 @@ function getsmeetupgroups($meetupapikey) {
     ));
 
     $response = $meetupgroups->getGroups();
+
+    $i = 1;
     foreach ($response->results as $group) {
+      if ($i > 9) {
+        break;
+      }
       echo '<p><a href="' . $group->link . '">' . $group->name . '</a></p>' . PHP_EOL;
+      $i++;
     }
   }
   catch(Exception $e) {
